@@ -1,0 +1,17 @@
+spring:
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+      settings:
+        trace: true
+  datasource:
+    url: jdbc:h2:mem:localtest
+    driverClassName: org.h2.Driver
+    username: sa
+    generate-unique-name: false
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:./data/schema-h2.sql
+      data-locations: classpath:./data/data-h2.sql
