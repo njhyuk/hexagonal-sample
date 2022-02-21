@@ -1,0 +1,13 @@
+ifndef::snippet[]
+:snippets: ../../../build/generated-snippets
+endif::[]
+
+=== 상품 상세 조회하기
+
+- REQUEST
+include::{snippets}/product/get-product/http-request.adoc[]
+include::{snippets}/product/get-product/path-parameters.adoc[]
+
+- RESPONSE
+include::{snippets}/product/get-product/response-body.adoc[]
+include::{snippets}/product/get-product/response-fields.adoc[]
