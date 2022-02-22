@@ -1,28 +1,41 @@
 package com.marketplace.product.api.adapter.out.persistence;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
-import org.springframework.data.relational.core.mapping.Table;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "GOODS")
 @Getter
 @Builder
-@Table("GOODS")
+@AllArgsConstructor
+@NoArgsConstructor
 public class ProductEntity {
+  @Column(name = "GOODS_NO")
   @Id
-  @Column("GOODS_NO")
+  @GeneratedValue
   private Long productNo;
-  @Column("GOODS_NM")
+
+  @Column(name = "GOODS_NM")
   private String name;
-  @Column("GOODS_CONT")
+
+  @Column(name = "GOODS_CONT")
   private String contents;
-  @Column("COM_ID")
+
+  @Column(name = "COM_ID")
   private String companyId;
-  @Column("REG_DM")
+
+  @Column(name = "REG_DM")
   private LocalDateTime createDateTime;
-  @Column("UPD_DM")
+
+  @Column(name = "UPD_DM")
   private LocalDateTime updateDateTime;
 }
