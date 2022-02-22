@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 @AllArgsConstructor
 public class CreateProductController {
@@ -16,7 +18,7 @@ public class CreateProductController {
 
   @PostMapping("/v1/products")
   public ProductCreatedModel createProduct(
-      @RequestBody CreateProductCommand createProductCommand
+      @RequestBody @Valid CreateProductCommand createProductCommand
   ) {
     Product product = createProductUseCase.createProduct(createProductCommand);
 
