@@ -1,8 +1,11 @@
 package com.marketplace.product.api.adapter.in.v1;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.marketplace.product.api.application.service.CreateProductService;
 import com.marketplace.product.api.application.service.GetProductService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -27,8 +30,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 public class AbstractRestDocControllerTest {
   protected MockMvc mockMvc;
 
+  @Autowired
+  protected ObjectMapper objectMapper;
+
   @MockBean
   protected GetProductService getProductService;
+
+  @MockBean
+  protected CreateProductService createProductService;
 
   @BeforeEach
   void init(WebApplicationContext webApplicationContext,

@@ -14,7 +14,7 @@ public class GetProductController {
   private final GetProductUseCase getProductUseCase;
 
   @GetMapping("/v1/products/{productNo}")
-  public ProductDetailModel getReview(@PathVariable Long productNo) {
+  public ProductDetailModel getProduct(@PathVariable Long productNo) {
     Product product = getProductUseCase.getProduct(productNo);
 
     return ProductDetailModel.from(product);

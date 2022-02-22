@@ -1,0 +1,13 @@
+ifndef::snippet[]
+:snippets: ../../../build/generated-snippets
+endif::[]
+
+=== 상품 등록하기
+
+- REQUEST
+include::{snippets}/product/create-product/http-request.adoc[]
+
+- RESPONSE
+
+include::{snippets}/product/create-product/response-body.adoc[]
+include::{snippets}/product/create-product/response-fields.adoc[]

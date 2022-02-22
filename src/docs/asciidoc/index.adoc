@@ -11,3 +11,5 @@
 
 include::get-product.adoc[]
 
+include::create-product.adoc[]
+
