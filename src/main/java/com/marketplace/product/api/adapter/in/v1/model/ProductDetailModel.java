@@ -1,4 +1,4 @@
-package com.marketplace.product.api.adapter.in.v1;
+package com.marketplace.product.api.adapter.in.v1.model;
 
 import com.marketplace.product.api.domain.Product;
 import lombok.Builder;
