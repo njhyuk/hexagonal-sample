@@ -3,6 +3,8 @@ package com.marketplace.product.api.adapter.in.web.v1;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.marketplace.product.api.application.service.CreateProductService;
 import com.marketplace.product.api.application.service.GetProductService;
+import com.marketplace.product.api.common.ApiThrottle;
+import com.marketplace.product.api.common.ApiThrottleInterceptor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import static org.mockito.ArgumentMatchers.refEq;
+import static org.mockito.Mockito.when;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessRequest;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessResponse;
@@ -39,6 +43,9 @@ public class AbstractRestDocControllerTest {
   @MockBean
   protected CreateProductService createProductService;
 
+  @MockBean
+  protected ApiThrottle apiThrottle;
+
   @BeforeEach
   void init(WebApplicationContext webApplicationContext,
             RestDocumentationContextProvider restDocumentation) {
@@ -47,6 +54,9 @@ public class AbstractRestDocControllerTest {
         .apply(documentationConfiguration(restDocumentation))
         .alwaysDo(print())
         .build();
+    
+    when(apiThrottle.consume())
+        .thenReturn(true);
   }
 
   public static OperationRequestPreprocessor getDocumentRequest() {
