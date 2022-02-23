@@ -10,8 +10,4 @@ spring:
     driverClassName: org.h2.Driver
     username: sa
     generate-unique-name: false
-  sql:
-    init:
-      mode: always
-      schema-locations: classpath:./data/schema-h2.sql
-      data-locations: classpath:./data/data-h2.sql
+
