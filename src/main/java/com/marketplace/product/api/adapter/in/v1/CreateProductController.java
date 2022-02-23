@@ -22,6 +22,6 @@ public class CreateProductController {
   ) {
     Product product = createProductUseCase.createProduct(createProductCommand);
 
-    return ProductCreatedModel.from(product);
+    return new ProductCreatedModel(product.getProductNo());
   }
 }
