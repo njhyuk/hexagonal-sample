@@ -1,6 +1,6 @@
-package com.marketplace.product.api.adapter.in.v1;
+package com.marketplace.product.api.adapter.in.web.v1;
 
-import com.marketplace.product.api.adapter.in.v1.model.ProductDetailModel;
+import com.marketplace.product.api.adapter.in.web.v1.model.ProductDetailModel;
 import com.marketplace.product.api.application.port.in.GetProductUseCase;
 import com.marketplace.product.api.domain.Product;
 import lombok.AllArgsConstructor;

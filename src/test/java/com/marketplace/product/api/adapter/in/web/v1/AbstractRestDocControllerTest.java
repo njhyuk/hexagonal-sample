@@ -1,4 +1,4 @@
-package com.marketplace.product.api.adapter.in.v1;
+package com.marketplace.product.api.adapter.in.web.v1;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.marketplace.product.api.application.service.CreateProductService;

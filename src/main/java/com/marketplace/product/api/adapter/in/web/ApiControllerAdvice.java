@@ -1,6 +1,7 @@
-package com.marketplace.product.api.adapter.in.v1;
+package com.marketplace.product.api.adapter.in.web;
 
-import com.marketplace.product.api.adapter.in.v1.model.ErrorModel;
+import com.marketplace.product.api.adapter.in.web.v1.model.ErrorModel;
+import com.marketplace.product.api.domain.exception.ApiThrottleException;
 import com.marketplace.product.api.domain.exception.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindException;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
-public class ApiExceptionHandler {
+public class ApiControllerAdvice {
   @ResponseStatus(HttpStatus.NOT_FOUND)
   @ExceptionHandler(NotFoundException.class)
   protected ErrorModel notFoundException(Throwable e) {
@@ -26,5 +27,11 @@ public class ApiExceptionHandler {
         .orElse(null);
 
     return new ErrorModel(message);
+  }
+
+  @ResponseStatus(HttpStatus.TOO_MANY_REQUESTS)
+  @ExceptionHandler(ApiThrottleException.class)
+  protected ErrorModel apiThrottleException(ApiThrottleException e) {
+    return new ErrorModel(e.getMessage());
   }
 }

@@ -1,6 +1,6 @@
-package com.marketplace.product.api.adapter.in.v1;
+package com.marketplace.product.api.adapter.in.web.v1;
 
-import com.marketplace.product.api.adapter.in.v1.model.ProductCreatedModel;
+import com.marketplace.product.api.adapter.in.web.v1.model.ProductCreatedModel;
 import com.marketplace.product.api.application.port.in.CreateProductCommand;
 import com.marketplace.product.api.application.port.in.CreateProductUseCase;
 import com.marketplace.product.api.domain.Product;
